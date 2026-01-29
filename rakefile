@@ -1,31 +1,36 @@
 require_relative 'config'
 require 'rake'
+require 'sqlite3'
 
-desc "Starta appen (Auto-reload via sinatra-reloader)"
+desc "Start Sinatra app with rerun for auto-reload"
 task :dev do
-  puts "🧹 Rensar port 9292..."
-  # Dödar gamla processer för att slippa EADDRINUSE
-  sh 'lsof -ti:9292 | xargs kill -9 > /dev/null 2>&1 || true'
-  
-  puts "🚀 Startar på http://localhost:9292"
-  sh 'bundle exec rackup --host 0.0.0.0'
+  sh 'bundle exec rerun --ignore "*.{erb,js,css}" --force-polling "rackup --host 0.0.0.0"'
 end
 
-desc "Seedning av databasen"
+desc "Fill the database with initial data from the seeder file"
 task :seed do
   require_relative './db/seeder'
-  Seeder.seed!
-  puts "✅ Databasen är återställd!"
+  puts "✅ Database done seeding!"
 end
 
-# Default task som körs när man bara skriver 'rake'
+def tables_ok?
+  return false unless File.exist?(DB_PATH)
+  db = SQLite3::Database.new(DB_PATH)
+  rows = db.execute("SELECT name FROM sqlite_master WHERE type='table' AND name IN ('messages','orders')")
+  names = rows.flatten
+  names.include?('messages') && names.include?('orders')
+ensure
+  db&.close
+end
+
+desc "Default task: seeds db if missing tables, then start dev server"
 task default: [] do
-  if !File.exist?(DB_PATH)
+  if !tables_ok?
+    puts "📦 Missing tables - running seed task..."
     Rake::Task[:seed].invoke
+  else
+    puts "🚀 Database OK - starting app..."
   end
-  Rake::Task[:dev].invoke
-end
 
-task :kill do
-  sh 'lsof -ti:9292 | xargs kill -9 > /dev/null 2>&1 || true'
+  Rake::Task[:dev].invoke
 end

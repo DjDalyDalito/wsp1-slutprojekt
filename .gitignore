@@ -1,6 +1,6 @@
 Gemfile.lock
 .byebug_history
-db/*.db.
+db/*.db
 
 # Mac
 .DS_Store

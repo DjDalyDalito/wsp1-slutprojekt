@@ -1,0 +1,19 @@
+current directory: /mnt/c/Users/oliver.nystrom1/.aProjektet/vendor/bundle/ruby/3.4.0/gems/debug-1.9.1/ext/debug
+/home/wsl/.rubies/ruby-3.4.5/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /mnt/c/Users/oliver.nystrom1/.aProjektet/vendor/bundle/ruby/3.4.0/gems/debug-1.9.1/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20260128-1013-u2yneq sitelibdir\=./.gem.20260128-1013-u2yneq clean
+
+current directory: /mnt/c/Users/oliver.nystrom1/.aProjektet/vendor/bundle/ruby/3.4.0/gems/debug-1.9.1/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20260128-1013-u2yneq sitelibdir\=./.gem.20260128-1013-u2yneq
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.so
+
+current directory: /mnt/c/Users/oliver.nystrom1/.aProjektet/vendor/bundle/ruby/3.4.0/gems/debug-1.9.1/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20260128-1013-u2yneq sitelibdir\=./.gem.20260128-1013-u2yneq install
+/usr/bin/install -c -m 0755 debug.so ./.gem.20260128-1013-u2yneq/debug
+
+current directory: /mnt/c/Users/oliver.nystrom1/.aProjektet/vendor/bundle/ruby/3.4.0/gems/debug-1.9.1/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20260128-1013-u2yneq sitelibdir\=./.gem.20260128-1013-u2yneq clean

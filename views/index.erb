@@ -1,13 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projekt #2</title>
-    <link rel="stylesheet" type="text/css" href="/style.css?<%=Time.now.to_i%>">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Booting</title>
+  <link rel="stylesheet" href="/css/styles.css" />
 </head>
-<body>
-  <h1>Webbserverprogrammering 1 - Slutprojekt</h1>
-  <img src="/img/glhf.png">
-</body>
-</html>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="tag">
+        Prestera 10x bättre
+      </div>
+
+      <h1 class="hero-title">
+        keyboard <span class="accent">Bla</span>
+      </h1>
+
+      <p class="hero-text">
+        Blablablablabla
+      </p>
+
+      <div class="hero-actions">
+        <form action="/cart/add" method="post" class="inline">
+          <button class="btn btn-primary" type="submit">Köp nu · 449 kr</button>
+        </form>
+        <a class="btn btn-ghost" href="#produkt">Läs mer</a>
+      </div>
+
+      <div class="checks">
+        <span>Fri frakt</span>
+        <span>30 dagars öppet köp</span>
+        <span>Snabb leverans</span>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <img class="hero-img" src="/images/keyboard.svg" alt="Produktbild" />
+    </div>
+  </div>
+</section>
+
+<section id="pris" class="section">
+  <div class="container">
+    <h2>Ett enkelt pris, allt inkluderat</h2>
+    <p class="section-lead muted">Inga dolda avgifter. Köp en gång, använd när du vill.</p>
+
+    <div class="pricing">
+      <div class="price-card">
+        <div class="price-left">
+          <img src="/images/keyboard.svg" alt="TyperBuddy" />
+        </div>
+        <div class="price-right">
+          <div class="price">449 kr</div>
+          <div class="muted">inkl. moms · fri frakt</div>
+
+          <ul class="checklist">
+            <li>TyperBuddy-enhet</li>
+            <li>USB-C kabel</li>
+            <li>Snabbstart-guide</li>
+            <li>2 års garanti</li>
+            <li>30 dagar öppet köp</li>
+          </ul>
+
+          <form action="/cart/add" method="post">
+            <button class="btn btn-primary wide" type="submit">Lägg i kundvagn</button>
+          </form>
+
+          <div class="muted small">Leverans: 2–4 arbetsdagar.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt" class="section">
+  <div class="container">
+    <h2>Kontakta oss</h2>
+    <p class="section-lead muted">Har du frågor? Kontakta oss så hjälper vi dig.</p>
+
+    <form class="contact" action="/kontakt" method="post">
+      <div class="grid2">
+        <label>
+          Namn
+          <input name="name" placeholder="Ditt namn" required />
+        </label>
+        <label>
+          E-post
+          <input name="email" type="email" placeholder="din@email.se" required />
+        </label>
+      </div>
+
+      <label>
+        Ämne
+        <input name="subject" placeholder="Vad gäller det?" />
+      </label>
+
+      <label>
+        Meddelande
+        <textarea name="message" rows="5" placeholder="Skriv ditt meddelande..." required></textarea>
+      </label>
+
+      <button class="btn btn-primary" type="submit">Skicka meddelande</button>
+    </form>
+  </div>
+</section>

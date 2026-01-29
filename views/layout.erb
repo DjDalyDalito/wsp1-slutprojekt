@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Booting</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="/">
+        <span class="brand-mark">BK</span>
+        <span class="brand-name">BootingKeyboard</span>
+      </a>
+
+      <nav class="menu">
+        <a href="#funktioner">Funktioner</a>
+        <a href="#produkt">Produkt</a>
+        <a href="#recensioner">Recensioner</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+    <%= yield %> <!-- Så att man kan ha flera .erb filer i samma vy-->
+  </main>
