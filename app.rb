@@ -1,24 +1,28 @@
 require "sinatra/base"
-require "sinatra/activerecord"
-
-class Message < ActiveRecord::Base # message kommer att ha tillgång till alla metoder och funktioner som ActiveRecord håller för att hantera databaser som att spara, uppdatera och radera objekt i databasen
-  validates :name, :email, :message, presence: true # säkerställer (mha validate presence: true) att ingen av dem tre attributen name, email, och message får vara tomma när ett objekt skapas, då kommer objektet inte att sparas i databasen och ett felmeddelande dyker upp
-end
+require "sinatra/reloader" if development?
+require_relative "./config"
+require "sqlite3"
 
 class App < Sinatra::Base
-  register Sinatra::ActiveRecordExtension
 
   configure do #configure => körs när appen (sinatra) startas
-    set :database, { adapter: "sqlite3", database: DB_PATH }
+    set :sessions, true #aktiverar sessions i sinatra så att data kan sparas i en cookie i webbläsaren så t.ex "session[:cart] = { "qty" => 2 }" => kunden behåller sin kundvagn när de byter sida
+  end
+
+  configure :development do #så man slipper starta om servern varje gång smart.
+    register Sinatra::Reloader
+  end
+
+  def db
+    return @db if @db
+    @db = SQLite3::Database.new(DB_PATH)
+    @db.results_as_hash = true
+    @db
   end
 
   helpers do
 
-    def unit_price_ore
-      44_900
-    end
-
-    def money_kr(ore)
+    def money_kr(ore) #används i cart.erb, detta är den bästa lösningen jag kan komma på i stunden.
       kr = ore.to_i / 100.0
       format("%.0f kr", kr) #convertar tal till sträng utan decimaler, och lägg till suffix kr 
     end
@@ -30,19 +34,17 @@ class App < Sinatra::Base
   end
 
   post "/kontakt" do
-    msg = Message.new(
-      name: params[:name].to_s.strip,
-      email: params[:email].to_s.strip,
-      subject: params[:subject].to_s.strip,
-      message: params[:message].to_s.strip
+    name = params[:name].to_s.strip
+    email = params[:email].to_s.strip
+    subject = params[:subject].to_s.strip
+    message = params[:message].to_s.strip
+
+    db.execute(
+      "INSERT INTO messages (name, email, subject, message) VALUES (?, ?, ?, ?)",
+      [name, email, subject, message]
     )
 
-    if msg.save #.save från activerecord, försöker spara objektet till databasen
-      erb :thanks
-    else
-      @errors = msg.errors.full_messages #. också från activerecord, samlar alla errorfel för objektet
-      erb :index
-    end
+    erb :thanks
   end
 
   post "/cart/add" do
@@ -59,17 +61,29 @@ class App < Sinatra::Base
 
   get "/cart" do
     qty = session[:cart] ||= { "qty" => 0}
-    @qty = qty["qty"].to_i #@ = instansvariabel
-    @subtotal_ore = @qty * 44_990
+    @qty = qty["qty"].to_i #@ = instansvariabel, @-variabler (instansvariabler) används när du vill skicka data till din erb-view, medan vanliga variabler utan @ bara behövs inne i routen
+    unit_price_ore = 44_900
+    @subtotal_ore = @qty * unit_price_ore #subtotal = delsumma, fake
     erb :cart
   end
 
-  #get "/thanks" do
+  post "/checkout" do
+    qty = (session[:cart] || { "qty" => 0 })["qty"].to_i # { "qty" => 0 } Används bara första gången någon använder kundvagnen på hemsidan, den säger att det finns en tom kundvagn, därefter används session[:cart] eftersom vi har skapat en kundvagn då, utan { "qty" => 0 } skulle vi fått error message, däremot går den inte att använda efter det eftersom vi hela tiden skulle haft en tom kundvagn då
+    halt 400, "Tom kundvagn" if qty <= 0 #400 = "Bad Request" error message, 404 ="Not Found" error message
 
-  #end
+    unit_price_ore = 44_900
+    total_ore = qty * unit_price_ore #total = real summa
 
-  #post "/checkout" do
+    name  = params[:name].to_s.strip
+    email = params[:email].to_s.strip
 
-  #end
+    db.execute(
+      "INSERT INTO orders (name, email, qty, total_ore) VALUES (?, ?, ?, ?)",
+      [name, email, qty, total_ore]
+    )
+
+    session[:cart] = { "qty" => 0 }
+    erb :order_thanks
+  end
 
 end

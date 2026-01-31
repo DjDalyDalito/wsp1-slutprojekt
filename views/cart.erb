@@ -22,6 +22,29 @@
         </div>
 
         <div class="cart-sum"><%= money_kr(@subtotal_ore) %></div>
+
+        <div class="cart-checkout">
+        <h3>Checkout</h3>
+        <div class="spec-row"><span>Delsumma</span><span><%= money_kr(@subtotal_ore) %></span></div>
+        <div class="spec-row"><span>Frakt</span><span>0 kr</span></div>
+        <div class="spec-row total"><span>Totalt</span><span><%= money_kr(@subtotal_ore) %></span></div>
+
+        <form action="/checkout" method="post" class="checkout-form">
+          <label>
+            Namn
+            <input name="name" required placeholder="Ditt namn" />
+          </label>
+          <label>
+            E-post
+            <input name="email" type="email" required placeholder="din@email.se" />
+          </label>
+
+          <button class="btn btn-primary wide" type="submit" <%= @qty.to_i <= 0 ? "disabled" : "" %>>
+            Betala
+          </button>
+          
+        </form>
+      </div>
       </div>
     </div>
   </div>
