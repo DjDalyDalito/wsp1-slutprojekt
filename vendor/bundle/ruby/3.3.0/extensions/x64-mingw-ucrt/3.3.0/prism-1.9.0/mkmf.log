@@ -1,0 +1,86 @@
+find_header: checking for prism.h in C:/Users/oliver.nystrom1/wsp/wsp1-slutprojekt/vendor/bundle/ruby/3.3.0/gems/prism-1.9.0/include... -------------------- yes
+
+PATH=".;C:/Ruby33-x64/lib;C:\Ruby33-x64\bin;C:\Ruby33-x64\msys64\ucrt64\bin;C:\Ruby33-x64\msys64\usr\bin;C:\Program Files\Java\jdk-24\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\oliver.nystrom1\Documents\opencv\build\x64\vc16\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\dev\vcpkg;;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\Users\oliver.nystrom1\Documents\opencv1\build\x64\vc16\bin;" "gcc -o conftest.exe -IC:/Ruby33-x64/include/ruby-3.3.0/x64-mingw-ucrt -IC:/Ruby33-x64/include/ruby-3.3.0/ruby/backward -IC:/Ruby33-x64/include/ruby-3.3.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LC:/Ruby33-x64/lib -L. -pipe -s -fstack-protector-strong -Wl,--no-as-needed     -lx64-ucrt-ruby330  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi -lbcrypt  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: int main(int argc, char **argv)
+6: {
+7:   return !!argv[argc];
+8: }
+/* end */
+
+PATH=".;C:/Ruby33-x64/lib;C:\Ruby33-x64\bin;C:\Ruby33-x64\msys64\ucrt64\bin;C:\Ruby33-x64\msys64\usr\bin;C:\Program Files\Java\jdk-24\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\oliver.nystrom1\Documents\opencv\build\x64\vc16\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\dev\vcpkg;;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\Users\oliver.nystrom1\Documents\opencv1\build\x64\vc16\bin;" "gcc -IC:/Ruby33-x64/include/ruby-3.3.0/x64-mingw-ucrt -IC:/Ruby33-x64/include/ruby-3.3.0/ruby/backward -IC:/Ruby33-x64/include/ruby-3.3.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong   -c conftest.c"
+conftest.c:5:10: fatal error: prism.h: No such file or directory
+    5 | #include <prism.h>
+      |          ^~~~~~~~~
+compilation terminated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <prism.h>
+/* end */
+
+PATH=".;C:/Ruby33-x64/lib;C:\Ruby33-x64\bin;C:\Ruby33-x64\msys64\ucrt64\bin;C:\Ruby33-x64\msys64\usr\bin;C:\Program Files\Java\jdk-24\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\oliver.nystrom1\Documents\opencv\build\x64\vc16\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\dev\vcpkg;;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\Users\oliver.nystrom1\Documents\opencv1\build\x64\vc16\bin;" "gcc -IC:/Ruby33-x64/include/ruby-3.3.0/x64-mingw-ucrt -IC:/Ruby33-x64/include/ruby-3.3.0/ruby/backward -IC:/Ruby33-x64/include/ruby-3.3.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong  -IC:/Users/oliver.nystrom1/wsp/wsp1-slutprojekt/vendor/bundle/ruby/3.3.0/gems/prism-1.9.0/include -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <prism.h>
+/* end */
+
+--------------------
+
+find_header: checking for prism/extension.h in C:/Users/oliver.nystrom1/wsp/wsp1-slutprojekt/vendor/bundle/ruby/3.3.0/gems/prism-1.9.0/ext... -------------------- yes
+
+PATH=".;C:/Ruby33-x64/lib;C:\Ruby33-x64\bin;C:\Ruby33-x64\msys64\ucrt64\bin;C:\Ruby33-x64\msys64\usr\bin;C:\Program Files\Java\jdk-24\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\oliver.nystrom1\Documents\opencv\build\x64\vc16\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\dev\vcpkg;;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\Users\oliver.nystrom1\Documents\opencv1\build\x64\vc16\bin;" "gcc -IC:/Ruby33-x64/include/ruby-3.3.0/x64-mingw-ucrt -IC:/Ruby33-x64/include/ruby-3.3.0/ruby/backward -IC:/Ruby33-x64/include/ruby-3.3.0 -I. -IC:/Users/oliver.nystrom1/wsp/wsp1-slutprojekt/vendor/bundle/ruby/3.3.0/gems/prism-1.9.0/include -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong   -c conftest.c"
+conftest.c:5:10: fatal error: prism/extension.h: No such file or directory
+    5 | #include <prism/extension.h>
+      |          ^~~~~~~~~~~~~~~~~~~
+compilation terminated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <prism/extension.h>
+/* end */
+
+PATH=".;C:/Ruby33-x64/lib;C:\Ruby33-x64\bin;C:\Ruby33-x64\msys64\ucrt64\bin;C:\Ruby33-x64\msys64\usr\bin;C:\Program Files\Java\jdk-24\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\oliver.nystrom1\Documents\opencv\build\x64\vc16\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\dev\vcpkg;;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\Users\oliver.nystrom1\Documents\opencv1\build\x64\vc16\bin;" "gcc -IC:/Ruby33-x64/include/ruby-3.3.0/x64-mingw-ucrt -IC:/Ruby33-x64/include/ruby-3.3.0/ruby/backward -IC:/Ruby33-x64/include/ruby-3.3.0 -I. -IC:/Users/oliver.nystrom1/wsp/wsp1-slutprojekt/vendor/bundle/ruby/3.3.0/gems/prism-1.9.0/include -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong  -IC:/Users/oliver.nystrom1/wsp/wsp1-slutprojekt/vendor/bundle/ruby/3.3.0/gems/prism-1.9.0/ext -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <prism/extension.h>
+/* end */
+
+--------------------
+
+append_cflags: checking for whether -fvisibility=hidden is accepted as CFLAGS... -------------------- yes
+
+PATH=".;C:/Ruby33-x64/lib;C:\Ruby33-x64\bin;C:\Ruby33-x64\msys64\ucrt64\bin;C:\Ruby33-x64\msys64\usr\bin;C:\Program Files\Java\jdk-24\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\oliver.nystrom1\Documents\opencv\build\x64\vc16\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\dev\vcpkg;;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\Users\oliver.nystrom1\Documents\opencv1\build\x64\vc16\bin;" "gcc -IC:/Ruby33-x64/include/ruby-3.3.0/x64-mingw-ucrt -IC:/Ruby33-x64/include/ruby-3.3.0/ruby/backward -IC:/Ruby33-x64/include/ruby-3.3.0 -I. -IC:/Users/oliver.nystrom1/wsp/wsp1-slutprojekt/vendor/bundle/ruby/3.3.0/gems/prism-1.9.0/include -IC:/Users/oliver.nystrom1/wsp/wsp1-slutprojekt/vendor/bundle/ruby/3.3.0/gems/prism-1.9.0/ext -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong  -fvisibility=hidden -Werror -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: int main(int argc, char **argv)
+6: {
+7:   return !!argv[argc];
+8: }
+/* end */
+
+--------------------
+

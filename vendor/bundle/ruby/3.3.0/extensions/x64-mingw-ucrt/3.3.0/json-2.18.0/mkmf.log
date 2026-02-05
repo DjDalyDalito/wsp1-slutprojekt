@@ -1,0 +1,183 @@
+have_func: checking for rb_enc_interned_str() in ruby/encoding.h... -------------------- yes
+
+PATH=".;C:/Ruby33-x64/lib;C:\Ruby33-x64\bin;C:\Ruby33-x64\msys64\ucrt64\bin;C:\Ruby33-x64\msys64\usr\bin;C:\Program Files\Java\jdk-24\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\oliver.nystrom1\Documents\opencv\build\x64\vc16\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\dev\vcpkg;;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\Users\oliver.nystrom1\Documents\opencv1\build\x64\vc16\bin;" "gcc -o conftest.exe -IC:/Ruby33-x64/include/ruby-3.3.0/x64-mingw-ucrt -IC:/Ruby33-x64/include/ruby-3.3.0/ruby/backward -IC:/Ruby33-x64/include/ruby-3.3.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LC:/Ruby33-x64/lib -L. -pipe -s -fstack-protector-strong -Wl,--no-as-needed     -lx64-ucrt-ruby330  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi -lbcrypt  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: int main(int argc, char **argv)
+6: {
+7:   return !!argv[argc];
+8: }
+/* end */
+
+PATH=".;C:/Ruby33-x64/lib;C:\Ruby33-x64\bin;C:\Ruby33-x64\msys64\ucrt64\bin;C:\Ruby33-x64\msys64\usr\bin;C:\Program Files\Java\jdk-24\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\oliver.nystrom1\Documents\opencv\build\x64\vc16\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\dev\vcpkg;;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\Users\oliver.nystrom1\Documents\opencv1\build\x64\vc16\bin;" "gcc -o conftest.exe -IC:/Ruby33-x64/include/ruby-3.3.0/x64-mingw-ucrt -IC:/Ruby33-x64/include/ruby-3.3.0/ruby/backward -IC:/Ruby33-x64/include/ruby-3.3.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LC:/Ruby33-x64/lib -L. -pipe -s -fstack-protector-strong -Wl,--no-as-needed     -lx64-ucrt-ruby330  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi -lbcrypt  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <ruby/encoding.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_enc_interned_str; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_str_to_interned_str() in ruby.h... -------------------- yes
+
+PATH=".;C:/Ruby33-x64/lib;C:\Ruby33-x64\bin;C:\Ruby33-x64\msys64\ucrt64\bin;C:\Ruby33-x64\msys64\usr\bin;C:\Program Files\Java\jdk-24\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\oliver.nystrom1\Documents\opencv\build\x64\vc16\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\dev\vcpkg;;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\Users\oliver.nystrom1\Documents\opencv1\build\x64\vc16\bin;" "gcc -o conftest.exe -IC:/Ruby33-x64/include/ruby-3.3.0/x64-mingw-ucrt -IC:/Ruby33-x64/include/ruby-3.3.0/ruby/backward -IC:/Ruby33-x64/include/ruby-3.3.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LC:/Ruby33-x64/lib -L. -pipe -s -fstack-protector-strong -Wl,--no-as-needed     -lx64-ucrt-ruby330  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi -lbcrypt  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <ruby.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_str_to_interned_str; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_hash_new_capa() in ruby.h... -------------------- yes
+
+PATH=".;C:/Ruby33-x64/lib;C:\Ruby33-x64\bin;C:\Ruby33-x64\msys64\ucrt64\bin;C:\Ruby33-x64\msys64\usr\bin;C:\Program Files\Java\jdk-24\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\oliver.nystrom1\Documents\opencv\build\x64\vc16\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\dev\vcpkg;;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\Users\oliver.nystrom1\Documents\opencv1\build\x64\vc16\bin;" "gcc -o conftest.exe -IC:/Ruby33-x64/include/ruby-3.3.0/x64-mingw-ucrt -IC:/Ruby33-x64/include/ruby-3.3.0/ruby/backward -IC:/Ruby33-x64/include/ruby-3.3.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LC:/Ruby33-x64/lib -L. -pipe -s -fstack-protector-strong -Wl,--no-as-needed     -lx64-ucrt-ruby330  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi -lbcrypt  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <ruby.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_hash_new_capa; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_hash_bulk_insert() in ruby.h... -------------------- yes
+
+PATH=".;C:/Ruby33-x64/lib;C:\Ruby33-x64\bin;C:\Ruby33-x64\msys64\ucrt64\bin;C:\Ruby33-x64\msys64\usr\bin;C:\Program Files\Java\jdk-24\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\oliver.nystrom1\Documents\opencv\build\x64\vc16\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\dev\vcpkg;;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\Users\oliver.nystrom1\Documents\opencv1\build\x64\vc16\bin;" "gcc -o conftest.exe -IC:/Ruby33-x64/include/ruby-3.3.0/x64-mingw-ucrt -IC:/Ruby33-x64/include/ruby-3.3.0/ruby/backward -IC:/Ruby33-x64/include/ruby-3.3.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LC:/Ruby33-x64/lib -L. -pipe -s -fstack-protector-strong -Wl,--no-as-needed     -lx64-ucrt-ruby330  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi -lbcrypt  "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <ruby.h>
+ 6: 
+ 7: /*top*/
+ 8: extern int t(void);
+ 9: int main(int argc, char **argv)
+10: {
+11:   if (argc > 1000000) {
+12:     int (* volatile tp)(void)=(int (*)(void))&t;
+13:     printf("%d", (*tp)());
+14:   }
+15: 
+16:   return !!argv[argc];
+17: }
+18: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_hash_bulk_insert; return !p; }
+/* end */
+
+--------------------
+
+append_cflags: checking for whether -std=c99 is accepted as CFLAGS... -------------------- yes
+
+PATH=".;C:/Ruby33-x64/lib;C:\Ruby33-x64\bin;C:\Ruby33-x64\msys64\ucrt64\bin;C:\Ruby33-x64\msys64\usr\bin;C:\Program Files\Java\jdk-24\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\oliver.nystrom1\Documents\opencv\build\x64\vc16\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\dev\vcpkg;;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\Users\oliver.nystrom1\Documents\opencv1\build\x64\vc16\bin;" "gcc -IC:/Ruby33-x64/include/ruby-3.3.0/x64-mingw-ucrt -IC:/Ruby33-x64/include/ruby-3.3.0/ruby/backward -IC:/Ruby33-x64/include/ruby-3.3.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong  -std=c99 -Werror -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: int main(int argc, char **argv)
+6: {
+7:   return !!argv[argc];
+8: }
+/* end */
+
+--------------------
+
+have_header: checking for x86intrin.h... -------------------- yes
+
+PATH=".;C:/Ruby33-x64/lib;C:\Ruby33-x64\bin;C:\Ruby33-x64\msys64\ucrt64\bin;C:\Ruby33-x64\msys64\usr\bin;C:\Program Files\Java\jdk-24\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\oliver.nystrom1\Documents\opencv\build\x64\vc16\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\dev\vcpkg;;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\Users\oliver.nystrom1\Documents\opencv1\build\x64\vc16\bin;" "gcc -IC:/Ruby33-x64/include/ruby-3.3.0/x64-mingw-ucrt -IC:/Ruby33-x64/include/ruby-3.3.0/ruby/backward -IC:/Ruby33-x64/include/ruby-3.3.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong -std=c99   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <x86intrin.h>
+/* end */
+
+--------------------
+
+PATH=".;C:/Ruby33-x64/lib;C:\Ruby33-x64\bin;C:\Ruby33-x64\msys64\ucrt64\bin;C:\Ruby33-x64\msys64\usr\bin;C:\Program Files\Java\jdk-24\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\oliver.nystrom1\Documents\opencv\build\x64\vc16\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\dev\vcpkg;;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\Users\oliver.nystrom1\Documents\opencv1\build\x64\vc16\bin;" "gcc -IC:/Ruby33-x64/include/ruby-3.3.0/x64-mingw-ucrt -IC:/Ruby33-x64/include/ruby-3.3.0/ruby/backward -IC:/Ruby33-x64/include/ruby-3.3.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong -std=c99  -Werror=implicit-function-declaration -c conftest.c"
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <winsock2.h>
+ 4: #include <windows.h>
+ 5: #include <x86intrin.h>
+ 6: 
+ 7: int main(int argc, char **argv) {
+ 8:   __m128i test = _mm_set1_epi8(32);
+ 9:   if (__builtin_cpu_supports("sse2")) { printf("OK"); }
+10:   if (argc > 100000) printf("%p", &test);
+11:   return 0;
+12: }
+/* end */
+
+have_header: checking for cpuid.h... -------------------- yes
+
+PATH=".;C:/Ruby33-x64/lib;C:\Ruby33-x64\bin;C:\Ruby33-x64\msys64\ucrt64\bin;C:\Ruby33-x64\msys64\usr\bin;C:\Program Files\Java\jdk-24\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\oliver.nystrom1\Documents\opencv\build\x64\vc16\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\dev\vcpkg;;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\Users\oliver.nystrom1\Documents\opencv1\build\x64\vc16\bin;" "gcc -IC:/Ruby33-x64/include/ruby-3.3.0/x64-mingw-ucrt -IC:/Ruby33-x64/include/ruby-3.3.0/ruby/backward -IC:/Ruby33-x64/include/ruby-3.3.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong -std=c99   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <cpuid.h>
+/* end */
+
+--------------------
+

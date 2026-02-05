@@ -39,8 +39,11 @@ class Seeder
         email TEXT NOT NULL,
         qty INTEGER NOT NULL DEFAULT 1,
         total_ore INTEGER NOT NULL,
+        payment_status TEXT NOT NULL DEFAULT 'created',
+        
         created_at TEXT NOT NULL DEFAULT (datetime('now')),
         updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+
       );
     SQL
   end

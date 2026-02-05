@@ -1,0 +1,59 @@
+checking for --enable-debug-build option... -------------------- no
+
+--------------------
+
+pkg_config: checking for pkg-config for libffi... -------------------- not found
+
+PATH=".;C:/Ruby33-x64/lib;C:\Ruby33-x64\bin;C:\Ruby33-x64\msys64\ucrt64\bin;C:\Ruby33-x64\msys64\usr\bin;C:\Program Files\Java\jdk-24\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\oliver.nystrom1\Documents\opencv\build\x64\vc16\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\dev\vcpkg;;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\Users\oliver.nystrom1\Documents\opencv1\build\x64\vc16\bin;" x86_64-w64-mingw32-pkg-config --exists libffi
+package configuration for libffi is not found
+--------------------
+
+have_header: checking for ffi.h... -------------------- no
+
+PATH=".;C:/Ruby33-x64/lib;C:\Ruby33-x64\bin;C:\Ruby33-x64\msys64\ucrt64\bin;C:\Ruby33-x64\msys64\usr\bin;C:\Program Files\Java\jdk-24\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\oliver.nystrom1\Documents\opencv\build\x64\vc16\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\dev\vcpkg;;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\Users\oliver.nystrom1\Documents\opencv1\build\x64\vc16\bin;" "gcc -o conftest.exe -IC:/Ruby33-x64/include/ruby-3.3.0/x64-mingw-ucrt -IC:/Ruby33-x64/include/ruby-3.3.0/ruby/backward -IC:/Ruby33-x64/include/ruby-3.3.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong conftest.c  -L. -LC:/Ruby33-x64/lib -L. -pipe -s -fstack-protector-strong -Wl,--no-as-needed     -lx64-ucrt-ruby330  -lshell32 -lws2_32 -liphlpapi -limagehlp -lshlwapi -lbcrypt  "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: int main(int argc, char **argv)
+6: {
+7:   return !!argv[argc];
+8: }
+/* end */
+
+PATH=".;C:/Ruby33-x64/lib;C:\Ruby33-x64\bin;C:\Ruby33-x64\msys64\ucrt64\bin;C:\Ruby33-x64\msys64\usr\bin;C:\Program Files\Java\jdk-24\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\oliver.nystrom1\Documents\opencv\build\x64\vc16\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\dev\vcpkg;;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\Users\oliver.nystrom1\Documents\opencv1\build\x64\vc16\bin;" "gcc -IC:/Ruby33-x64/include/ruby-3.3.0/x64-mingw-ucrt -IC:/Ruby33-x64/include/ruby-3.3.0/ruby/backward -IC:/Ruby33-x64/include/ruby-3.3.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong   -c conftest.c"
+conftest.c:5:10: fatal error: ffi.h: No such file or directory
+    5 | #include <ffi.h>
+      |          ^~~~~~~
+compilation terminated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <ffi.h>
+/* end */
+
+--------------------
+
+have_header: checking for ffi/ffi.h... -------------------- no
+
+PATH=".;C:/Ruby33-x64/lib;C:\Ruby33-x64\bin;C:\Ruby33-x64\msys64\ucrt64\bin;C:\Ruby33-x64\msys64\usr\bin;C:\Program Files\Java\jdk-24\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Users\oliver.nystrom1\Documents\opencv\build\x64\vc16\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\dev\vcpkg;;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\oliver.nystrom1\AppData\Local\Programs\Python\Python313\;C:\Ruby33-x64\bin;C:\Users\oliver.nystrom1\AppData\Local\Microsoft\WindowsApps;C:\Users\oliver.nystrom1\AppData\Local\GitHubDesktop\bin;C:\Users\oliver.nystrom1\AppData\Roaming\npm;C:\MinGW\bin;C:\Users\oliver.nystrom1\downloads\cmake-4.0.0-rc1-windows-x86_64\cmake-4.0.0-rc1-windows-x86_64\bin;C:\Users\oliver.nystrom1\.dotnet\tools;C:\Users\oliver.nystrom1\Documents\opencv1\build\x64\vc16\bin;" "gcc -IC:/Ruby33-x64/include/ruby-3.3.0/x64-mingw-ucrt -IC:/Ruby33-x64/include/ruby-3.3.0/ruby/backward -IC:/Ruby33-x64/include/ruby-3.3.0 -I. -D__USE_MINGW_ANSI_STDIO=1 -DFD_SETSIZE=2048 -D_WIN32_WINNT=0x0600 -D__MINGW_USE_VC2005_COMPAT -D_FILE_OFFSET_BITS=64  -O3 -fno-fast-math -fstack-protector-strong   -c conftest.c"
+conftest.c:5:10: fatal error: ffi/ffi.h: No such file or directory
+    5 | #include <ffi/ffi.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <winsock2.h>
+4: #include <windows.h>
+5: #include <ffi/ffi.h>
+/* end */
+
+--------------------
+

@@ -1,0 +1,50 @@
+current directory: C:/Users/oliver.nystrom1/wsp/wsp1-slutprojekt/vendor/bundle/ruby/3.3.0/gems/fiddle-1.1.6/ext/fiddle
+C:/Ruby33-x64/bin/ruby.exe extconf.rb
+checking for --enable-debug-build option... no
+checking for pkg-config for libffi... not found
+checking for ffi.h... no
+checking for ffi/ffi.h... no
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--without-opt-dir
+	--with-opt-include=${opt-dir}/include
+	--without-opt-include
+	--with-opt-lib=${opt-dir}/lib
+	--without-opt-lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=C:/Ruby33-x64/bin/$(RUBY_BASE_NAME)
+	--enable-debug-build
+	--disable-debug-build
+	--with-libffi-source-dir
+	--without-libffi-source-dir
+	--with-libffi-dir
+	--without-libffi-dir
+	--with-libffi-include=${libffi-dir}/include
+	--without-libffi-include
+	--with-libffi-lib=${libffi-dir}/lib
+	--without-libffi-lib
+	--with-libffi-config
+	--without-libffi-config
+	--with-pkg-config
+	--without-pkg-config
+	--with-ffi-dir
+	--without-ffi-dir
+	--with-ffi-include=${ffi-dir}/include
+	--without-ffi-include
+	--with-ffi-lib=${ffi-dir}/lib
+	--without-ffi-lib
+extconf.rb:86:in `<main>': missing libffi. Please install libffi or use --with-libffi-source-dir with libffi source location. (RuntimeError)
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  C:/Users/oliver.nystrom1/wsp/wsp1-slutprojekt/vendor/bundle/ruby/3.3.0/extensions/x64-mingw-ucrt/3.3.0/fiddle-1.1.6/mkmf.log
+
+extconf failed, exit code 1

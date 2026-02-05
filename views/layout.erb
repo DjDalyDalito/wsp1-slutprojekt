@@ -21,9 +21,17 @@
         <a href="#faq">FAQ</a>
       </nav>
 
+      <div class="nav-cta">
+        <a class="cartlink" href="/cart" aria-label="Kundvagn">
+          Kundvagn <span class="pill"><%= cart_qty %></span>
+        </a>
+        <a class="btn btn-primary" href="#pris">Köp nu</a>
+      </div>
     </div>
   </header>
 
   <main>
     <%= yield %> <!-- Så att man kan ha flera .erb filer i samma vy-->
   </main>
+</body>
+</html>
