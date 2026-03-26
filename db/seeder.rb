@@ -40,10 +40,11 @@ class Seeder
         qty INTEGER NOT NULL DEFAULT 1,
         total_ore INTEGER NOT NULL,
         payment_status TEXT NOT NULL DEFAULT 'created',
-        
+        stripe_session_id TEXT UNIQUE,
+        stripe_payment_intent_id TEXT,
+        paid_at TEXT,
         created_at TEXT NOT NULL DEFAULT (datetime('now')),
         updated_at TEXT NOT NULL DEFAULT (datetime('now'))
-
       );
     SQL
   end

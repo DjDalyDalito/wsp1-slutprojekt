@@ -9,10 +9,10 @@ class App < Sinatra::Base
 
   configure do #configure => körs när appen (sinatra) startas
     set :sessions, true #aktiverar sessions i sinatra så att data kan sparas i en cookie i webbläsaren så t.ex "session[:cart] = { "qty" => 2 }" => kunden behåller sin kundvagn när de byter sida
-    set :stripe_webhook_secret, ENV["STRIPE_WEBHOOK_SECRET"]
+    #set :stripe_webhook_secret, ENV["STRIPE_WEBHOOK_SECRET"]
   end
 
-  Stripe.api_key = ENV.fetch['STRIPE_SECRET_KEY']
+ #Stripe.api_key = ENV.fetch['STRIPE_SECRET_KEY']
 
   configure :development do #så man slipper starta om servern varje gång smart.
     register Sinatra::Reloader

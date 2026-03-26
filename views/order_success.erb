@@ -1,0 +1,15 @@
+<section class="section">
+  <div class="container narrow">
+    <h2>Tack för din beställning!</h2>
+
+    <% if @order %>
+      <p class="muted">Ordernummer: <%= @order["id"] %></p>
+      <p class="muted">Betalstatus: <%= @checkout_session.payment_status %></p>
+      <p class="muted">E-post: <%= @order["email"] %></p>
+      <p class="muted">Antal: <%= @order["qty"] %></p>
+      <p class="muted">Totalt: <%= money_kr(@order["total_ore"]) %></p>
+    <% end %>
+
+    <a class="btn btn-primary" href="/">Till startsidan</a>
+  </div>
+</section>
