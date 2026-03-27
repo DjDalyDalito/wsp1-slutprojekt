@@ -4,6 +4,7 @@ require_relative "./config"
 require "json"
 require "sqlite3"
 require "stripe"
+require "bcrypt"
 
 class App < Sinatra::Base
 
@@ -14,8 +15,8 @@ class App < Sinatra::Base
 
  #Stripe.api_key = ENV.fetch['STRIPE_SECRET_KEY']
 
-  configure :development do #så man slipper starta om servern varje gång smart.
-    register Sinatra::Reloader
+  configure :development do
+    register Sinatra::Reloader #så man slipper starta om servern varje gång smart.
   end
 
   def db
@@ -101,6 +102,41 @@ class App < Sinatra::Base
 
     cart["qty"] = 0
     erb :order_thanks
+  end
+
+  get "/login" do 
+    erb :login
+  end
+
+  post "/login" do
+    user = db.execute("SELECT * FROM users WHERE username = ?", [params[:username]]).first
+
+    unless user
+      status 401
+      redirect "/acces_denied"
+    end
+
+    db_id = user["id"].to_i
+    db_password_hashed = user["password"].to_s
+
+    bcrypt_db_password = BCrypt::Password.new(db_password_hashed)
+
+    if bcrypt_db_password == params[:password]
+      session[:user_id] = db_id
+      redirect "/"
+    else
+      p "fel användarnamn eller lösenord"
+      redirect "/acces_denied"
+    end
+  end
+
+  get "/acces_denied" do
+    erb :acces_denied
+  end
+
+  post "/logout" do
+    session.clear
+    redirect "/"
   end
 
   #post "/webhook" do

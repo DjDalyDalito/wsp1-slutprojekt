@@ -1,6 +1,7 @@
 # db/seeder.rb
 require 'sqlite3'
 require_relative '../config'
+require "bcrypt"
 
 class Seeder
   def self.seed!
@@ -17,6 +18,7 @@ class Seeder
   def self.drop_tables
     db.execute('DROP TABLE IF EXISTS messages')
     db.execute('DROP TABLE IF EXISTS orders')
+    db.execute('DROP TABLE IF EXISTS users')
   end
 
   def self.create_tables
@@ -47,6 +49,14 @@ class Seeder
         updated_at TEXT NOT NULL DEFAULT (datetime('now'))
       );
     SQL
+
+  db.execute <<~SQL
+    CREATE TABLE users (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      username TEXT NOT NULL,
+      password TEXT NOT NULL
+    );
+  SQL
   end
 
   def self.populate_tables
