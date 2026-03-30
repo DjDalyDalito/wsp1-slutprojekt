@@ -1,0 +1,19 @@
+current directory: /mnt/c/Users/olliz/Documents/wsp/wsp1-slutprojekt/vendor/bundle/ruby/3.4.0/gems/stringio-3.2.0/ext/stringio
+/home/wsl/.rubies/ruby-3.4.5/bin/ruby extconf.rb
+checking for rb_io_mode_t in ruby/io.h... no
+creating Makefile
+
+current directory: /mnt/c/Users/olliz/Documents/wsp/wsp1-slutprojekt/vendor/bundle/ruby/3.4.0/gems/stringio-3.2.0/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20260330-1613-acyujq sitelibdir\=./.gem.20260330-1613-acyujq clean
+
+current directory: /mnt/c/Users/olliz/Documents/wsp/wsp1-slutprojekt/vendor/bundle/ruby/3.4.0/gems/stringio-3.2.0/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20260330-1613-acyujq sitelibdir\=./.gem.20260330-1613-acyujq
+compiling stringio.c
+linking shared-object stringio.so
+
+current directory: /mnt/c/Users/olliz/Documents/wsp/wsp1-slutprojekt/vendor/bundle/ruby/3.4.0/gems/stringio-3.2.0/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20260330-1613-acyujq sitelibdir\=./.gem.20260330-1613-acyujq install
+/usr/bin/install -c -m 0755 stringio.so ./.gem.20260330-1613-acyujq
+
+current directory: /mnt/c/Users/olliz/Documents/wsp/wsp1-slutprojekt/vendor/bundle/ruby/3.4.0/gems/stringio-3.2.0/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20260330-1613-acyujq sitelibdir\=./.gem.20260330-1613-acyujq clean

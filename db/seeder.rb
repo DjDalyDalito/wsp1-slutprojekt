@@ -75,6 +75,13 @@ class Seeder
       'INSERT INTO orders (name, email, qty, total_ore) VALUES (?, ?, ?, ?)',
       ["Demo Kund", "demo@demo.se", 1, 44_900]
     )
+
+    hashed_password = BCrypt::Password.create("hejhejhej")
+
+    db.execute(
+      'INSERT INTO users (username, password) VALUES (?, ?)',
+      ["hejhejhej", hashed_password]
+    )
   end
 
   private

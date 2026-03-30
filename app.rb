@@ -6,6 +6,10 @@ require "sqlite3"
 require "stripe"
 require "bcrypt"
 
+require_relative "./models/message"
+require_relative "./models/order"
+require_relative "./models/user"
+
 class App < Sinatra::Base
 
   configure do #configure => körs när appen (sinatra) startas
@@ -41,24 +45,43 @@ class App < Sinatra::Base
       cart["qty"].to_i
     end
 
+    def logged_in?
+      !!session[:user_id] #!! gör att det blir en boolean, om session[:user_id] har ett värde så blir det true annars false
+    end
+
+  end
+
+  before do
+    @logged_in = logged_in? #@logged_in är en instansvariabel som kan användas i alla views o den sätts till true eller false beroende på om användaren är inloggad eller inte
+  end
+
+  def protected!
+    redirect "/login" unless logged_in? #om inte logged_in? så skickas användaren till login-sidan
   end
 
   get "/" do
     erb :index
   end
 
-  post "/kontakt" do
-    name = params[:name].to_s.strip
-    email = params[:email].to_s.strip
-    subject = params[:subject].to_s.strip
-    message = params[:message].to_s.strip
+  post "/messages" do
+    #name = params[:name].to_s.strip
+    #email = params[:email].to_s.strip
+    #subject = params[:subject].to_s.strip
+    #message = params[:message].to_s.strip
 
-    db.execute(
-      "INSERT INTO messages (name, email, subject, message) VALUES (?, ?, ?, ?)",
-      [name, email, subject, message]
+    #db.execute(
+      #"INSERT INTO messages (name, email, subject, message) VALUES (?, ?, ?, ?)",
+      #[name, email, subject, message]
+    #)
+    Message.create(
+    params[:name],
+    params[:email],
+    params[:subject],
+    params[:message]
     )
 
     erb :thanks
+
   end
 
   post "/cart/add" do
@@ -76,6 +99,7 @@ class App < Sinatra::Base
   end
 
   get "/cart" do
+    protected! #för att komma till kundvagnen måste man vara inloggad, annars skickas man till login-sidan
     #qty = session[:cart] ||= { "qty" => 0}
     #@qty = qty["qty"].to_i #@ = instansvariabel, @-variabler (instansvariabler) används när du vill skicka data till din erb-view, medan vanliga variabler utan @ bara behövs inne i routen
     @qty = cart_qty
@@ -85,7 +109,7 @@ class App < Sinatra::Base
   end
 
   post "/checkout" do
-    #qty = (session[:cart] || { "qty" => 0 })["qty"].to_i # { "qty" => 0 } Används bara första gången någon använder kundvagnen på hemsidan, den säger att det finns en tom kundvagn, därefter används session[:cart] eftersom vi har skapat en kundvagn då, utan { "qty" => 0 } skulle vi fått error message, däremot går den inte att använda efter det eftersom vi hela tiden skulle haft en tom kundvagn då
+    qty = (session[:cart] || { "qty" => 0 })["qty"].to_i # { "qty" => 0 } Används bara första gången någon använder kundvagnen på hemsidan, den säger att det finns en tom kundvagn, därefter används session[:cart] eftersom vi har skapat en kundvagn då, utan { "qty" => 0 } skulle vi fått error message, däremot går den inte att använda efter det eftersom vi hela tiden skulle haft en tom kundvagn då
     qty = cart_qty
     halt 400, "Tom kundvagn" if qty <= 0 #400 = "Bad Request" error message, 404 ="Not Found" error message
 
@@ -95,10 +119,12 @@ class App < Sinatra::Base
     name  = params[:name].to_s.strip
     email = params[:email].to_s.strip
 
-    db.execute(
-      "INSERT INTO orders (name, email, qty, total_ore) VALUES (?, ?, ?, ?)",
-      [name, email, qty, total_ore]
-    )
+    #db.execute(
+      #"INSERT INTO orders (name, email, qty, total_ore) VALUES (?, ?, ?, ?)",
+      #[name, email, qty, total_ore]
+    #)
+
+    Order.create(name, email, qty, total_ore)
 
     cart["qty"] = 0
     erb :order_thanks
@@ -109,7 +135,8 @@ class App < Sinatra::Base
   end
 
   post "/login" do
-    user = db.execute("SELECT * FROM users WHERE username = ?", [params[:username]]).first
+    #user = db.execute("SELECT * FROM users WHERE username = ?", [params[:username]]).first
+    user = User.find_by_username(params[:username].to_s.strip)
 
     unless user
       status 401

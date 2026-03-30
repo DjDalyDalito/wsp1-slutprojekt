@@ -1,0 +1,19 @@
+current directory: /mnt/c/Users/olliz/Documents/wsp/wsp1-slutprojekt/vendor/bundle/ruby/3.4.0/gems/erb-6.0.2/ext/erb/escape
+/home/wsl/.rubies/ruby-3.4.5/bin/ruby extconf.rb
+checking for rb_ext_ractor_safe() in ruby.h... yes
+creating Makefile
+
+current directory: /mnt/c/Users/olliz/Documents/wsp/wsp1-slutprojekt/vendor/bundle/ruby/3.4.0/gems/erb-6.0.2/ext/erb/escape
+make DESTDIR\= sitearchdir\=./.gem.20260330-1613-kacm21 sitelibdir\=./.gem.20260330-1613-kacm21 clean
+
+current directory: /mnt/c/Users/olliz/Documents/wsp/wsp1-slutprojekt/vendor/bundle/ruby/3.4.0/gems/erb-6.0.2/ext/erb/escape
+make DESTDIR\= sitearchdir\=./.gem.20260330-1613-kacm21 sitelibdir\=./.gem.20260330-1613-kacm21
+compiling escape.c
+linking shared-object erb/escape.so
+
+current directory: /mnt/c/Users/olliz/Documents/wsp/wsp1-slutprojekt/vendor/bundle/ruby/3.4.0/gems/erb-6.0.2/ext/erb/escape
+make DESTDIR\= sitearchdir\=./.gem.20260330-1613-kacm21 sitelibdir\=./.gem.20260330-1613-kacm21 install
+/usr/bin/install -c -m 0755 escape.so ./.gem.20260330-1613-kacm21/erb
+
+current directory: /mnt/c/Users/olliz/Documents/wsp/wsp1-slutprojekt/vendor/bundle/ruby/3.4.0/gems/erb-6.0.2/ext/erb/escape
+make DESTDIR\= sitearchdir\=./.gem.20260330-1613-kacm21 sitelibdir\=./.gem.20260330-1613-kacm21 clean

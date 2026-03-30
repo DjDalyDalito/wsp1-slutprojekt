@@ -1,0 +1,11 @@
+>> echo $APP_URL
+PS C:\Users\olliz\Documents\wsp\wsp1-slutprojekt> export STRIPE_SECRET_KEY=“sk_test_51ShBlFPjtgHvMyenyeoFGLU6np3cTihkh7seTorQWxcGOczi1M87skbpATAd2OpxZdYV7toFMvPwxrIfdaqjrzqP00L279TAcA”
+export : The term 'export' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ export STRIPE_SECRET_KEY=“sk_test_51ShBlFPjtgHvMyenyeoFGLU6np3cTihkh7 ...
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (export:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+PS C:\Users\olliz\Documents\wsp\wsp1-slutprojekt> 
+[201~

@@ -1,0 +1,23 @@
+current directory: /mnt/c/Users/olliz/Documents/wsp/wsp1-slutprojekt/vendor/bundle/ruby/3.4.0/gems/debug-1.11.1/ext/debug
+/home/wsl/.rubies/ruby-3.4.5/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /mnt/c/Users/olliz/Documents/wsp/wsp1-slutprojekt/vendor/bundle/ruby/3.4.0/gems/debug-1.11.1/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20260330-1613-cyu6wd sitelibdir\=./.gem.20260330-1613-cyu6wd clean
+make: Warning: File 'Makefile' has modification time 0.26 s in the future
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /mnt/c/Users/olliz/Documents/wsp/wsp1-slutprojekt/vendor/bundle/ruby/3.4.0/gems/debug-1.11.1/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20260330-1613-cyu6wd sitelibdir\=./.gem.20260330-1613-cyu6wd
+make: Warning: File 'Makefile' has modification time 0.24 s in the future
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.so
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /mnt/c/Users/olliz/Documents/wsp/wsp1-slutprojekt/vendor/bundle/ruby/3.4.0/gems/debug-1.11.1/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20260330-1613-cyu6wd sitelibdir\=./.gem.20260330-1613-cyu6wd install
+/usr/bin/install -c -m 0755 debug.so ./.gem.20260330-1613-cyu6wd/debug
+
+current directory: /mnt/c/Users/olliz/Documents/wsp/wsp1-slutprojekt/vendor/bundle/ruby/3.4.0/gems/debug-1.11.1/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20260330-1613-cyu6wd sitelibdir\=./.gem.20260330-1613-cyu6wd clean
