@@ -20,7 +20,7 @@ class App < Sinatra::Base
  #Stripe.api_key = ENV.fetch['STRIPE_SECRET_KEY']
 
   configure :development do
-    register Sinatra::Reloader #så man slipper starta om servern varje gång smart.
+   # register Sinatra::Reloader #så man slipper starta om servern varje gång smart.
   end
 
   def db
@@ -60,7 +60,7 @@ class App < Sinatra::Base
   end
 
   get "/" do
-    erb :index
+    erb (:"/main/index")
   end
 
   post "/messages" do
@@ -80,7 +80,7 @@ class App < Sinatra::Base
     params[:message]
     )
 
-    erb :thanks
+    erb (:"/message/thanks")
 
   end
 
@@ -88,24 +88,24 @@ class App < Sinatra::Base
     #session[:cart] ||= { "qty" => 0} # "||=" om det inte redan finns något värde här, sätt till detta ___.
     #session[:cart]["qty"] = session[:cart]["qty"].to_i + 1 
     cart["qty"] = cart_qty + 1
-    redirect "/cart"
+    redirect "/order/cart"
   end
 
   post "/cart/remove" do
     #session[:cart] ||= { "qty" => 0}
     #session[:cart]["qty"] = [session[:cart]["qty"].to_i - 1, 0].max #kan aldrig bli ett negativt värde därav , 0 och .max
     cart["qty"] = [cart_qty - 1, 0].max
-    redirect "/cart"
+    redirect "/order/cart"
   end
 
-  get "/cart" do
+  get "/order/cart" do
     protected! #för att komma till kundvagnen måste man vara inloggad, annars skickas man till login-sidan
     #qty = session[:cart] ||= { "qty" => 0}
     #@qty = qty["qty"].to_i #@ = instansvariabel, @-variabler (instansvariabler) används när du vill skicka data till din erb-view, medan vanliga variabler utan @ bara behövs inne i routen
     @qty = cart_qty
     unit_price_ore = 44_900
     @subtotal_ore = @qty * unit_price_ore #subtotal = delsumma, fake
-    erb :cart
+    erb (:"/order/cart")
   end
 
   post "/checkout" do
@@ -127,11 +127,11 @@ class App < Sinatra::Base
     Order.create(name, email, qty, total_ore)
 
     cart["qty"] = 0
-    erb :order_thanks
+    erb (:"/order/order_thanks")
   end
 
   get "/login" do 
-    erb :login
+    erb (:"/user/login")
   end
 
   post "/login" do
@@ -140,7 +140,7 @@ class App < Sinatra::Base
 
     unless user
       status 401
-      redirect "/acces_denied"
+      redirect "/user/acces_denied"
     end
 
     db_id = user["id"].to_i
@@ -153,12 +153,12 @@ class App < Sinatra::Base
       redirect "/"
     else
       p "fel användarnamn eller lösenord"
-      redirect "/acces_denied"
+      redirect "/user/acces_denied"
     end
   end
 
-  get "/acces_denied" do
-    erb :acces_denied
+  get "/user/acces_denied" do
+    erb (:"/user/acces_denied")
   end
 
   post "/logout" do
