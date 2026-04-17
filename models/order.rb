@@ -5,4 +5,10 @@ class Order
       [name, email, qty, total_ore]
     )
   end
+  def self.find_by_id(id)
+    DB.execute(
+      "SELECT * FROM orders WHERE id = ?",
+      [id]
+    ).first
+  end
 end

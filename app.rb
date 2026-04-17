@@ -1,5 +1,5 @@
 require "sinatra/base"
-require "sinatra/reloader" if development?
+#require "sinatra/reloader" if development?
 require_relative "./config"
 require "json"
 require "sqlite3"
@@ -15,12 +15,16 @@ class App < Sinatra::Base
   configure do #configure => körs när appen (sinatra) startas
     set :sessions, true #aktiverar sessions i sinatra så att data kan sparas i en cookie i webbläsaren så t.ex "session[:cart] = { "qty" => 2 }" => kunden behåller sin kundvagn när de byter sida
     #set :stripe_webhook_secret, ENV["STRIPE_WEBHOOK_SECRET"]
+    set :session_secret, "1234567890123456789012345678901234567890123456789012345678901234"#signerar cookien så att vem som helst inte kan ändra den
   end
+
+  MAX_LOGIN_ATTEMPTS = 3
+  LOCK_TIME = 60
 
  #Stripe.api_key = ENV.fetch['STRIPE_SECRET_KEY']
 
   configure :development do
-   # register Sinatra::Reloader #så man slipper starta om servern varje gång smart.
+   # register Sinatra::Reloader #så man slipper starta om servern
   end
 
   def db
@@ -49,6 +53,18 @@ class App < Sinatra::Base
       !!session[:user_id] #!! gör att det blir en boolean, om session[:user_id] har ett värde så blir det true annars false
     end
 
+    def login_attempts
+      session[:login_attempts] ||= 0
+    end
+
+    def login_locked_until
+      session[:login_locked_until] #hämtar tiden då låsningen ska sluta
+    end
+
+    def login_locked?
+      login_locked_until && Time.now.to_i < login_locked_until #finns det en sparad låsningstid och är nuvarande tid mindre än den tiden isf true good to go
+    end
+
   end
 
   before do
@@ -64,24 +80,23 @@ class App < Sinatra::Base
   end
 
   post "/messages" do
-    #name = params[:name].to_s.strip
-    #email = params[:email].to_s.strip
-    #subject = params[:subject].to_s.strip
-    #message = params[:message].to_s.strip
+    name = params[:name].to_s.strip
+    email = params[:email].to_s.strip
+    subject = params[:subject].to_s.strip
+    message = params[:message].to_s.strip
 
     #db.execute(
       #"INSERT INTO messages (name, email, subject, message) VALUES (?, ?, ?, ?)",
       #[name, email, subject, message]
     #)
-    Message.create(
-    params[:name],
-    params[:email],
-    params[:subject],
-    params[:message]
-    )
+
+    halt 400, "Namn får inte vara tomt" if name.empty?
+    halt 400, "Email måste innehålla gmail.com" unless email.include?("gmail.com")
+    halt 400, "Meddelandet är för långt" if message.length > 500
+
+    Message.create(name, email, subject, message)
 
     erb (:"/message/thanks")
-
   end
 
   post "/cart/add" do
@@ -109,6 +124,7 @@ class App < Sinatra::Base
   end
 
   post "/checkout" do
+    protected!
     qty = (session[:cart] || { "qty" => 0 })["qty"].to_i # { "qty" => 0 } Används bara första gången någon använder kundvagnen på hemsidan, den säger att det finns en tom kundvagn, därefter används session[:cart] eftersom vi har skapat en kundvagn då, utan { "qty" => 0 } skulle vi fått error message, däremot går den inte att använda efter det eftersom vi hela tiden skulle haft en tom kundvagn då
     qty = cart_qty
     halt 400, "Tom kundvagn" if qty <= 0 #400 = "Bad Request" error message, 404 ="Not Found" error message
@@ -124,7 +140,7 @@ class App < Sinatra::Base
       #[name, email, qty, total_ore]
     #)
 
-    Order.create(name, email, qty, total_ore)
+    Order.create(session[:user_id], name, email, qty, total_ore)
 
     cart["qty"] = 0
     erb (:"/order/order_thanks")
@@ -135,11 +151,23 @@ class App < Sinatra::Base
   end
 
   post "/login" do
+  if login_locked?
+    puts "Failad login: #{params[:username]} från #{request.ip}"
+    halt 429, "För många försök. Vänta 60 sekunder." #429=för många försök
+  end
     #user = db.execute("SELECT * FROM users WHERE username = ?", [params[:username]]).first
-    user = User.find_by_username(params[:username].to_s.strip)
+    username = params[:username].to_s.strip
+    password = params[:password].to_s #INTE STRIP PÅ LÖSENORD!!! det ska matcha exakt
+    user = User.find_by_username(username)
 
     unless user
-      status 401
+      session[:login_attempts] = login_attempts + 1
+      puts "Failad login: #{username} från #{request.ip} (försök #{session[:login_attempts]})"
+
+      if session[:login_attempts] >= MAX_LOGIN_ATTEMPTS
+        session[:login_locked_until] = Time.now.to_i + LOCK_TIME
+        puts "Failad login: #{username} från #{request.ip}"
+      end
       redirect "/user/acces_denied"
     end
 
@@ -148,10 +176,19 @@ class App < Sinatra::Base
 
     bcrypt_db_password = BCrypt::Password.new(db_password_hashed)
 
-    if bcrypt_db_password == params[:password]
+    if bcrypt_db_password == password
       session[:user_id] = db_id
+      puts "Lyckad login: #{username} from #{request.ip}"
+      session[:login_attempts] = 0
+      session[:login_locked_until] = nil
       redirect "/"
     else
+      session[:login_attempts] = login_attempts + 1
+      puts "Failad login: #{username} från #{request.ip} (försök #{session[:login_attempts]})"
+      if session[:login_attempts] >= MAX_LOGIN_ATTEMPTS
+        session[:login_locked_until] = Time.now.to_i + LOCK_TIME
+        puts "Failad login: #{username} från #{request.ip}"
+      end
       p "fel användarnamn eller lösenord"
       redirect "/user/acces_denied"
     end
@@ -162,8 +199,34 @@ class App < Sinatra::Base
   end
 
   post "/logout" do
+    protected!
     session.clear
     redirect "/"
+  end
+
+  get "/register" do
+    erb (:"/user/register")
+  end
+
+  post "/register" do
+    username = params[:username].to_s.strip
+    password = params[:password].to_s
+
+    halt 400, "Användarnamn måste vara minst 6 tecken" if username.length < 6
+    halt 400, "Lösenord måste vara minst 6 tecken" if password.length < 6
+
+    User.create(username, password)
+    redirect "/login"
+  end
+
+  get "/orders/:id" do |id|
+    protected!
+
+    @order = Order.find_by_id(id)
+    halt 404, "Ordern finns inte" unless @order
+    halt 403, "Du har inte tillgång till denna order" unless @order["user_id"] == session[:user_id]
+
+    erb(:"/order/show")
   end
 
   #post "/webhook" do

@@ -4,7 +4,7 @@ require 'sqlite3'
 
 desc "Start Sinatra app with rerun for auto-reload"
 task :dev do
-  sh 'bundle exec rerun --ignore "*.{erb,js,css}" --force-polling "rackup --host 0.0.0.0"'
+  sh 'bundle exec rerun --ignore "*.{erb,js,css,rb}" --force-polling "rackup --host 0.0.0.0"'
 end
 
 desc "Fill the database with initial data from the seeder file"

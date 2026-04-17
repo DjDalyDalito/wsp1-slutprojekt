@@ -54,8 +54,10 @@ class Seeder
     db.execute <<~SQL
       CREATE TABLE users (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        username TEXT NOT NULL,
-        password TEXT NOT NULL
+        username TEXT NOT NULL UNIQUE,
+        password TEXT NOT NULL,
+        failed_attempts INTEGER NOT NULL DEFAULT 0,
+        locked_until TEXT
       );
     SQL
 

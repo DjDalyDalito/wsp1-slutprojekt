@@ -25,7 +25,15 @@
         <a class="cartlink" href="/order/cart" aria-label="Kundvagn">
           Kundvagn <span class="pill"><%= cart_qty %></span>
         </a>
-        <a class="btn btn-primary" href="#pris">Köp nu</a>
+
+        <% if @logged_in %>
+          <form action="/logout" method="post" style="display:inline;">
+            <button class="btn btn-primary" type="submit">Logga ut</button>
+          </form>
+        <% else %>
+          <a class="btn btn-primary" href="/login">Logga in</a>
+          <a class="btn btn-primary" href="/register">Registrera dig</a>
+        <% end %>
       </div>
     </div>
   </header>

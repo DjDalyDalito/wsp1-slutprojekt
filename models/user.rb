@@ -12,4 +12,13 @@ class User
 
     BCrypt::Password.new(user["password"]) == password
   end
+
+  def self.create(username, password)
+    hashed_password = BCrypt::Password.create(password)
+
+    DB.execute(
+      "INSERT INTO users (username, password) VALUES (?, ?)",
+      [username, hashed_password]
+    )
+  end
 end
