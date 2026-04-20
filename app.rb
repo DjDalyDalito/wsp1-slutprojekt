@@ -23,9 +23,9 @@ class App < Sinatra::Base
 
  #Stripe.api_key = ENV.fetch['STRIPE_SECRET_KEY']
 
-  configure :development do
+  #configure :development do
    # register Sinatra::Reloader #så man slipper starta om servern
-  end
+  #end
 
   def db
     return @db if @db
@@ -65,6 +65,14 @@ class App < Sinatra::Base
       login_locked_until && Time.now.to_i < login_locked_until #finns det en sparad låsningstid och är nuvarande tid mindre än den tiden isf true good to go
     end
 
+    def admin?
+      logged_in? && current_user["role"] == "admin"  # Kollar om användaren är inloggad och om de är en admin
+    end
+
+    def current_user
+      @current_user ||= DB.execute("SELECT * FROM users WHERE id = ?", [session[:user_id]]).first
+    end
+
   end
 
   before do
@@ -90,12 +98,11 @@ class App < Sinatra::Base
       #[name, email, subject, message]
     #)
 
-    halt 400, "Namn får inte vara tomt" if name.empty?
-    halt 400, "Email måste innehålla gmail.com" unless email.include?("gmail.com")
-    halt 400, "Meddelandet är för långt" if message.length > 500
+    halt 404, "Namn får inte vara tomt" if name.empty?
+    halt 404, "Email måste innehålla gmail.com" unless email.include?("gmail.com")
+    halt 404, "Meddelandet är för långt" if message.length > 500
 
-    Message.create(name, email, subject, message)
-
+    @message_id = Message.create(name, email, subject, message)
     erb (:"/message/thanks")
   end
 
@@ -127,7 +134,7 @@ class App < Sinatra::Base
     protected!
     qty = (session[:cart] || { "qty" => 0 })["qty"].to_i # { "qty" => 0 } Används bara första gången någon använder kundvagnen på hemsidan, den säger att det finns en tom kundvagn, därefter används session[:cart] eftersom vi har skapat en kundvagn då, utan { "qty" => 0 } skulle vi fått error message, däremot går den inte att använda efter det eftersom vi hela tiden skulle haft en tom kundvagn då
     qty = cart_qty
-    halt 400, "Tom kundvagn" if qty <= 0 #400 = "Bad Request" error message, 404 ="Not Found" error message
+    halt 404, "Tom kundvagn" if qty <= 0
 
     unit_price_ore = 44_900
     total_ore = qty * unit_price_ore #total = real summa
@@ -140,10 +147,10 @@ class App < Sinatra::Base
       #[name, email, qty, total_ore]
     #)
 
-    Order.create(session[:user_id], name, email, qty, total_ore)
+    order_id = Order.create(session[:user_id], name, email, qty, total_ore)
 
     cart["qty"] = 0
-    erb (:"/order/order_thanks")
+    redirect "/orders/#{order_id}"
   end
 
   get "/login" do 
@@ -153,7 +160,7 @@ class App < Sinatra::Base
   post "/login" do
   if login_locked?
     puts "Failad login: #{params[:username]} från #{request.ip}"
-    halt 429, "För många försök. Vänta 60 sekunder." #429=för många försök
+    halt 404, "För många försök. Vänta 60 sekunder."
   end
     #user = db.execute("SELECT * FROM users WHERE username = ?", [params[:username]]).first
     username = params[:username].to_s.strip
@@ -211,22 +218,42 @@ class App < Sinatra::Base
   post "/register" do
     username = params[:username].to_s.strip
     password = params[:password].to_s
-
-    halt 400, "Användarnamn måste vara minst 6 tecken" if username.length < 6
-    halt 400, "Lösenord måste vara minst 6 tecken" if password.length < 6
-
+    halt 404, "Användarnamn måste vara minst 6 tecken" if username.length < 6
+    halt 404, "Lösenord måste vara minst 6 tecken" if password.length < 6
     User.create(username, password)
     redirect "/login"
   end
 
   get "/orders/:id" do |id|
     protected!
-
     @order = Order.find_by_id(id)
     halt 404, "Ordern finns inte" unless @order
-    halt 403, "Du har inte tillgång till denna order" unless @order["user_id"] == session[:user_id]
-
+    halt 404, "Du har inte tillgång till denna order" unless @order["user_id"] == session[:user_id]
     erb(:"/order/show")
+  end
+
+  post "/orders/:id/delete" do |id|
+    protected!
+    order = Order.find_by_id(id)
+    halt 404, "Ordern finns inte" unless order
+    halt 404, "Du har inte tillgång till denna order" unless order["user_id"] == session[:user_id]
+    Order.delete(id)
+    redirect "/"
+  end
+
+  get "/admin/messages" do
+    protected!
+    halt 404, "Endast administratörer har tillgång" unless admin?
+    @messages = DB.execute("SELECT * FROM messages")
+    erb :"admin/messages"
+  end
+
+  post "/messages/:id/delete" do |id|
+    protected!
+    message = Message.find_by_id(id)
+    halt 404, "Meddelandet finns inte" unless message
+    Message.delete(id)
+    redirect "/"
   end
 
   #post "/webhook" do

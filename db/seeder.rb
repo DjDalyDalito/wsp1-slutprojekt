@@ -31,6 +31,18 @@ class Seeder
   #så att databasen kan lagra produkter separat och sedan återanvända dem i andra beställningar då slipper vi skriva produktnamn direkt i varje order
 
   def self.create_tables
+
+    db.execute <<~SQL
+      CREATE TABLE users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT NOT NULL UNIQUE,
+        password TEXT NOT NULL,
+        role TEXT NOT NULL DEFAULT 'user',
+        failed_attempts INTEGER NOT NULL DEFAULT 0,
+        locked_until TEXT
+      );
+    SQL
+
     db.execute <<~SQL
       CREATE TABLE messages (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -48,16 +60,6 @@ class Seeder
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT NOT NULL,
         price_ore INTEGER NOT NULL
-      );
-    SQL
-
-    db.execute <<~SQL
-      CREATE TABLE users (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        username TEXT NOT NULL UNIQUE,
-        password TEXT NOT NULL,
-        failed_attempts INTEGER NOT NULL DEFAULT 0,
-        locked_until TEXT
       );
     SQL
 
@@ -97,13 +99,11 @@ class Seeder
 
   def self.populate_tables
     # Demo messages
+    hashed_password = BCrypt::Password.create("hejhejhej")
+
     db.execute(
-      'INSERT INTO messages (name, email, subject, message) VALUES (?, ?, ?, ?)',
-      ["Anna L", "anna@example.com", "Fråga", "Hur lång är leveransen?"]
-    )
-    db.execute(
-      'INSERT INTO messages (name, email, subject, message) VALUES (?, ?, ?, ?)',
-      ["Erik H", "erik@example.com", "Support", "Kan jag returnera inom 30 dagar?"]
+      'INSERT INTO users (username, password, role) VALUES (?, ?, ?)',
+      ["hejhejhej", hashed_password, "admin"]
     )
 
     #produkt
@@ -112,23 +112,25 @@ class Seeder
       ['BootingKeyboard', 4490]
     )
 
-    #orderprodukt
-    db.execute(
-      'INSERT INTO order_items (order_id, product_id, quantity, item_price_ore) VALUES (?, ?, ?, ?)',
-      [1, 1, 1, 4490]
-    )
-
     # Demo order
     db.execute(
       'INSERT INTO orders (user_id, name, email, qty, total_ore) VALUES (?, ?, ?, ?, ?)',
       [1, "Demo Kund", "demo@demo.se", 1, 44_900]
     )
 
-    hashed_password = BCrypt::Password.create("hejhejhej")
+    #orderprodukt
+    db.execute(
+      'INSERT INTO order_items (order_id, product_id, quantity, item_price_ore) VALUES (?, ?, ?, ?)',
+      [1, 1, 1, 4490]
+    )
 
     db.execute(
-      'INSERT INTO users (username, password) VALUES (?, ?)',
-      ["hejhejhej", hashed_password]
+      'INSERT INTO messages (name, email, subject, message) VALUES (?, ?, ?, ?)',
+      ["Anna L", "anna@example.com", "Fråga", "Hur lång är leveransen?"]
+    )
+    db.execute(
+      'INSERT INTO messages (name, email, subject, message) VALUES (?, ?, ?, ?)',
+      ["Erik H", "erik@example.com", "Support", "Kan jag returnera inom 30 dagar?"]
     )
   end
 

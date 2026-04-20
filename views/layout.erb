@@ -26,10 +26,13 @@
           Kundvagn <span class="pill"><%= cart_qty %></span>
         </a>
 
-        <% if @logged_in %>
+        <% if logged_in? %>
           <form action="/logout" method="post" style="display:inline;">
             <button class="btn btn-primary" type="submit">Logga ut</button>
           </form>
+          <% if admin? %>
+            <a href="/admin/messages">Meddelanden</a>
+          <% end %>
         <% else %>
           <a class="btn btn-primary" href="/login">Logga in</a>
           <a class="btn btn-primary" href="/register">Registrera dig</a>

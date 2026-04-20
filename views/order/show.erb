@@ -1,0 +1,20 @@
+<section class="section">
+  <div class="container narrow">
+    <% if @order["payment_status"] == "created" %>
+      <h2>Order mottagen!</h2>
+      <p class="muted">Din order är sparad i databasen. Tack för ditt köp.</p>
+      <a class="btn btn-primary" href="/">Till startsidan</a>
+    <% end %>
+
+    <h2>Order #<%= @order["id"] %></h2>
+    <p>Namn: <%= @order["name"] %></p>
+    <p>Email: <%= @order["email"] %></p>
+    <p>Antal: <%= @order["qty"] %></p>
+    <p>Totalt: <%= money_kr(@order["total_ore"]) %></p>
+    <p>Status: <%= @order["payment_status"] %></p>
+
+    <form action="/orders/<%= @order["id"] %>/delete" method="post">
+      <button type="submit">Ta bort order</button>
+    </form>
+  </div>
+</section>

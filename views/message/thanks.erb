@@ -2,6 +2,9 @@
   <div class="container narrow">
     <h2>Tack!</h2>
     <p class="muted">Ditt meddelande är sparat i databasen. Vi återkommer så snart vi kan.</p>
+    <form action="/messages/<%= @message_id %>/delete" method="post">
+      <button class="btn btn-danger" type="submit">Ta bort mitt meddelande</button>
+    </form>
     <a class="btn btn-primary" href="/">Till startsidan</a>
   </div>
 </section>
