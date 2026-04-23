@@ -7,15 +7,9 @@ class Order
     DB.last_insert_row_id
   end
   def self.find_by_id(id)
-    DB.execute(
-      "SELECT * FROM orders WHERE id = ?",
-      [id]
-    ).first
+    DB.execute("SELECT * FROM orders WHERE id = ?",[id]).first
   end
   def self.delete(id)
-    DB.execute(
-      "DELETE FROM orders WHERE id = ?",
-      [id]
-    )
+    DB.execute("DELETE FROM orders WHERE id = ?",[id])
   end
 end

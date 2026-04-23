@@ -2,8 +2,8 @@
   <div class="container narrow">
     <% if @order["payment_status"] == "created" %>
       <h2>Order mottagen!</h2>
-      <p class="muted">Din order är sparad i databasen. Tack för ditt köp.</p>
-      <a class="btn btn-primary" href="/">Till startsidan</a>
+      <p class="msg">Din order är sparad i databasen. Tack för ditt köp.</p>
+      <a class="btn" href="/">Till startsidan</a>
     <% end %>
 
     <h2>Order #<%= @order["id"] %></h2>

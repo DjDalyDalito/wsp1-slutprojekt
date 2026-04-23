@@ -8,34 +8,30 @@
 </head>
 <body>
   <header class="topbar">
-    <div class="container nav">
+    <div class="container-nav">
       <a class="brand" href="/">
-        <span class="brand-mark">BK</span>
+        <span class="brand-logo">BK</span>
         <span class="brand-name">BootingKeyboard</span>
       </a>
 
       <nav class="menu">
         <a href="#funktioner">Funktioner</a>
         <a href="#produkt">Produkt</a>
-        <a href="#recensioner">Recensioner</a>
-        <a href="#faq">FAQ</a>
+        <a href="#kontakt">Kontakt</a>
       </nav>
 
-      <div class="nav-cta">
-        <a class="cartlink" href="/order/cart" aria-label="Kundvagn">
-          Kundvagn <span class="pill"><%= cart_qty %></span>
-        </a>
+      <div class="resten-nav">
 
         <% if logged_in? %>
           <form action="/logout" method="post" style="display:inline;">
-            <button class="btn btn-primary" type="submit">Logga ut</button>
+            <button class="btn" type="submit">Logga ut</button>
           </form>
           <% if admin? %>
-            <a href="/admin/messages">Meddelanden</a>
+            <a href="/admin/message">Meddelanden</a>
           <% end %>
         <% else %>
-          <a class="btn btn-primary" href="/login">Logga in</a>
-          <a class="btn btn-primary" href="/register">Registrera dig</a>
+          <a class="btn" href="/login">Logga in</a>
+          <a class="btn" href="/register">Registrera dig</a>
         <% end %>
       </div>
     </div>

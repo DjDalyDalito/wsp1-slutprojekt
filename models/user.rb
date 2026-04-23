@@ -6,13 +6,6 @@ class User
     ).first
   end
 
-  def self.authenticate(username, password)
-    user = find_by_username(username)
-    return false unless user
-
-    BCrypt::Password.new(user["password"]) == password
-  end
-
   def self.create(username, password)
     hashed_password = BCrypt::Password.create(password)
 

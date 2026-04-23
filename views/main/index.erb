@@ -1,23 +1,23 @@
-<section class="hero">
-  <div class="container hero-grid">
+<section class="produkt">
+  <div class="container grid">
     <div>
       <div class="tag">
         Prestera 10x bättre
       </div>
 
-      <h1 class="hero-title">
+      <h1 class="title">
         keyboard <span class="accent">Bla</span>
       </h1>
 
-      <p class="hero-text">
+      <p class="text">
         Blablablablabla
       </p>
 
-      <div class="hero-actions">
-        <form action="/cart/add" method="post" class="inline">
-          <button class="btn btn-primary" type="submit">Köp nu · 449 kr</button>
+      <div class="actions">
+        <form action="/cart/new" method="post" class="inline">
+          <button class="btn" type="submit">Köp nu · 449 kr</button>
         </form>
-        <a class="btn btn-ghost" href="#produkt">Läs mer</a>
+        <a class="btn2" href="#funktioner">Läs mer</a>
       </div>
 
       <div class="checks">
@@ -27,16 +27,16 @@
       </div>
     </div>
 
-    <div class="hero-card">
+    <div class="card">
       <img class="img" src="/images/keyboard.png" alt="Produktbild" width="50%"/>
     </div>
   </div>
 </section>
 
-<section id="pris" class="section">
+<section id="funktioner" class="section">
   <div class="container">
     <h2>Ett enkelt pris, allt inkluderat</h2>
-    <p class="section-lead muted">Inga dolda avgifter. Köp en gång, använd när du vill.</p>
+    <p class="msg2">Inga dolda avgifter. Köp en gång, använd när du vill.</p>
 
     <div class="pricing">
       <div class="price-card">
@@ -45,7 +45,7 @@
         </div>
         <div class="price-right">
           <div class="price">449 kr</div>
-          <div class="muted">inkl. moms · fri frakt</div>
+          <div class="msg">inkl. moms · fri frakt</div>
 
           <ul class="checklist">
             <li>BootingKeyboard</li>
@@ -55,11 +55,11 @@
             <li>30 dagar öppet köp</li>
           </ul>
 
-          <form action="/cart/add" method="post">
-            <button class="btn btn-primary wide" type="submit">Lägg i kundvagn</button>
+          <form action="/cart/new" method="post">
+            <button class="btn3" type="submit">Lägg i kundvagn</button>
           </form>
 
-          <div class="muted small">Leverans: 2–4 arbetsdagar.</div>
+          <div class="msg3">Leverans: 2–4 arbetsdagar.</div>
         </div>
       </div>
     </div>
@@ -69,9 +69,9 @@
 <section id="kontakt" class="section">
   <div class="container">
     <h2>Kontakta oss</h2>
-    <p class="section-lead muted">Har du frågor? Kontakta oss så hjälper vi dig.</p>
+    <p class="msg2">Har du frågor? Kontakta oss så hjälper vi dig.</p>
 
-    <form class="contact" action="/messages" method="post">
+    <form class="contact" action="/message" method="post">
       <div class="grid2">
         <label>
           Namn
@@ -93,7 +93,7 @@
         <textarea name="message" rows="5" placeholder="Skriv ditt meddelande..." required></textarea>
       </label>
 
-      <button class="btn btn-primary" type="submit">Skicka meddelande</button>
+      <button class="btn" type="submit">Skicka meddelande</button>
     </form>
   </div>
 </section>

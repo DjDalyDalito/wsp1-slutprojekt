@@ -28,8 +28,7 @@ class Seeder
   #orders själv köpet
   #produkt vad som säljs
   #users vem som gör själva köpet
-  #så att databasen kan lagra produkter separat och sedan återanvända dem i andra beställningar då slipper vi skriva produktnamn direkt i varje order
-
+  #så att databasen kan lagra produkter separat och sedan återanvända dem i andra beställningar, annars blir det problem som bara en produkt per order eller behöva spara flera produkt-id:n i samma kolumn
   def self.create_tables
 
     db.execute <<~SQL
@@ -94,6 +93,8 @@ class Seeder
       );
     SQL
   end
+
+  #kolumnen product_id i order_items (främmande nyckel) måste vara ett id som finns i tabellen products
 
   #Databasen innehåller flera tabeller och en många-till-många-relation mellan orders och products som hanteras med relationstabellen order_items, (däremot hanteras inte messages med relationstabellen)
 
